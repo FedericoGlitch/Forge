@@ -1,6 +1,5 @@
 <?php
 include_once("config/config.php");
-
 $id = $_GET['code']; //obtengo Codigo de acceso para el token.
 ?>
 <!DOCTYPE html>
@@ -29,7 +28,7 @@ $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL,"https://developer.api.autodesk.com/authentication/v1/gettoken");
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
-            "client_id=qAk6GgArqwsyWHUX8AHnJ2TJ3K5Cok8E&client_secret=JlikM36CZPnZApfi&grant_type=authorization_code&code='.$id.'&redirect_uri=https://clientes.locker.com.mx/forge");
+            'client_id='.ClientID.'&client_secret='.ClientSecret.'&grant_type=authorization_code&code='.$id.'&redirect_uri='.CallBackUrl.'');
 curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded'));
 
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
